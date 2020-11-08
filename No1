@@ -1,0 +1,30 @@
+using System;
+
+public class A
+{
+    private int i = 7; // i is set to private.
+
+    protected int F(int j)
+    {
+        return i + j;
+    }
+}
+
+public class B : A
+{
+    public void G()
+    {
+        Console.WriteLine("i: {0}", i); // class B could have not inherited (i), so it is not reachable.
+        Console.WriteLine("F(5): {0}", F(5));
+    }
+}
+
+public class Client
+{
+    public static void Main()
+    {
+        B b = new B();
+        b.G();
+    }
+}
+
